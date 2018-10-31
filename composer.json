@@ -1,9 +1,12 @@
 {
     "name": "naif/nova-mysql",
-    "description": "A Laravel Nova tool.",
+    "description": "Laravel Nova MySQL Server Managment",
     "keywords": [
         "laravel",
-        "nova"
+        "nova",
+        "mysql",
+        "database",
+        "databases"
     ],
     "license": "MIT",
     "require": {
