@@ -1,6 +1,6 @@
 ## Laravel Nova MySQL Server Managment
 
-Laravel Nova MySQL Server Managment to do:
+Laravel Nova MySQL Server Management to do:
 - Create new database
 - Delete database
 - Repair database
