@@ -4,7 +4,7 @@ namespace Naif\NovaMysql\Http\Controllers;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 
-require_once __DIR__ . '/../../../vendor/autoload.php';
+require_once '../vendor/autoload.php';
 
 class cPanelController
 {
