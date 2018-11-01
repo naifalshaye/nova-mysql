@@ -25,7 +25,7 @@ Add the below to app/Providers/NovaServiceProvder.php
 public function tools()
   {
       return [
-           new MailchimpTool()
+           new NovaMysql()
       ];
   } 
 ```
