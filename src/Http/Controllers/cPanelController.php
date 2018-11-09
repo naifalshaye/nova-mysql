@@ -1,7 +1,6 @@
 <?php
 namespace Naif\NovaMysql\Http\Controllers;
 
-use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 
 require_once '../vendor/autoload.php';
@@ -14,7 +13,7 @@ class cPanelController
     public function __construct()
     {
         $this->cpanel = new \Gufy\CpanelPhp\Cpanel([
-            'host' => 'https://192.254.234.144:2083', // ip or domain complete with its protocol and port
+            'host' => 'https://'.env('CPANEL_HOST').':'.env('CPANEL_PORT'), // ip or domain complete with its protocol and port
             'username' => env('CPANEL_USERNAME'), // username of your server, it usually root.
             'auth_type' => 'password', // set 'hash' or 'password'
             'password' => env('CPANEL_PASSWORD'), // long hash or your user's password
@@ -123,19 +122,6 @@ class cPanelController
         $response = json_decode($response);
         if ($response->result->status) {
             return ['success' => 'Username has been added to database successfully'];
-        }
-        return ['error' => $response->result->errors[0]];
-    }
-
-    public function getUserPrivileges(Request $request)
-    {
-        $response = $this->cpanel->execute_action('2', 'MysqlFE', 'getdbuserprivileges', $this->database_prefix, [
-            'dbuser' => 'phototim_naif',
-            'db' => 'phototim_naifdb',
-        ]);
-        $response = json_decode($response);
-        if ($response->result->status) {
-            return ['success' => 'Database has been deleted successfully'];
         }
         return ['error' => $response->result->errors[0]];
     }
